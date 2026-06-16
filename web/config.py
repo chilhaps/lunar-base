@@ -6,6 +6,7 @@ no matter what cwd it is launched from.
 
 from __future__ import annotations
 
+import platform
 from pathlib import Path
 
 ROOT: Path = Path(__file__).resolve().parent.parent
@@ -19,7 +20,7 @@ BACKUP_DIR: Path = DATA_DIR / "backups"
 MASTERDATA_DIR: Path = DATA_DIR / "masterdata"
 NAMES_DIR: Path = DATA_DIR / "names"
 
-GRANT_EXE_PATH: Path = ROOT / "tools" / "grant" / "grant.exe"
+GRANT_EXE_PATH: Path = ROOT / "tools" / "grant" / ("grant.exe" if platform.system() == "Windows" else "grant")
 
 
 def find_master_data_bin() -> Path | None:
