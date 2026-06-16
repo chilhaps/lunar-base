@@ -7,5 +7,35 @@ fi
 
 source .venv/bin/activate
 
+HOST=127.0.0.1
+PORT=8888
+
+while [ "$#" -gt 0 ]; do
+    case "$1" in
+        --host)
+            shift
+            if [ -z "$1" ]; then
+                echo "Usage: $0 [--host HOST] [--port PORT]"
+                exit 1
+            fi
+            HOST="$1"
+            ;;
+        --port)
+            shift
+            if [ -z "$1" ]; then
+                echo "Usage: $0 [--host HOST] [--port PORT]"
+                exit 1
+            fi
+            PORT="$1"
+            ;;
+        *)
+            echo "Usage: $0 [--host HOST] [--port PORT]"
+            exit 1
+            ;;
+    esac
+    shift
+done
+
 echo === Lunar Base ===
-python -m uvicorn web.app:app --host 0.0.0.0 --port 9088
+echo Open http://$HOST:$PORT in your browser.
+python -m uvicorn web.app:app --host "$HOST" --port "$PORT"
