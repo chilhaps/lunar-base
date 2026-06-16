@@ -11,7 +11,7 @@ if not exist .venv (
     py -m venv .venv
     if errorlevel 1 (
         echo.
-        echo Failed to create virtual environment. Make sure Python 3.10+ is installed and accessible as "py".
+        echo Failed to create virtual environment. Make sure Python 3.10+ is installed and accessible as "python".
         exit /b 1
     )
 ) else (
