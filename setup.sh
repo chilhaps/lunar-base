@@ -131,7 +131,7 @@ echo Building tools/grant/grant ...
 
 CURRENT_DIR=$(pwd)
 pushd ../lunar-tear/server
-go build -o "$CURRENT_DIR/grant/grant" ./cmd/lunar-base-grant/
+go build -o "$CURRENT_DIR/tools/grant/grant" ./cmd/lunar-base-grant/
 BUILD_RC=$?
 popd
 
