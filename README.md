@@ -30,21 +30,47 @@ NierRein Repos\
 
 ### Setup (run once)
 
+Windows:
+
 ```bat
 setup.bat
 ```
 
-Creates a virtual environment in `.venv\` and installs Python dependencies from `web\requirements.txt`. Re-run any time dependencies change or after pulling new shim sources.
+Linux/macOS:
+
+```bash
+./setup.sh
+```
+
+This creates a virtual environment in `.venv/` and installs Python dependencies from `web/requirements.txt`. Re-run any time dependencies change or after pulling new shim sources.
 
 ### Run
+
+Windows:
 
 ```bat
 run-lunar-base.bat
 ```
 
-Then open **http://127.0.0.1:8888** in your browser. Press `Ctrl+C` in the terminal to stop the server.
+Linux/macOS:
 
-> The app binds to `127.0.0.1` only — no other machine on your network can reach it.
+```bash
+./run-lunar-base.sh
+```
+
+Both scripts accept optional flags:
+
+```bash
+./run-lunar-base.sh --host 0.0.0.0 --port 9088
+```
+
+```bat
+run-lunar-base.bat --host 0.0.0.0 --port 9088
+```
+
+The default is `127.0.0.1:8888` when no flags are provided. Then open **http://127.0.0.1:8888** in your browser. Press `Ctrl+C` in the terminal to stop the server.
+
+> The app binds to `127.0.0.1` by default — no other machine on your network can reach it unless you override the host.
 
 ---
 
