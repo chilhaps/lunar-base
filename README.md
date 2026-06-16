@@ -70,22 +70,6 @@ run-lunar-base.bat --host 0.0.0.0 --port 9088
 
 The default is `127.0.0.1:8888` when no flags are provided. Then open **http://127.0.0.1:8888** in your browser. Press `Ctrl+C` in the terminal to stop the server.
 
-> The app binds to `127.0.0.1` by default — no other machine on your network can reach it unless you override the host.
-
-### Docker Compose
-
-Build and run the app in Docker:
-
-```bash
-docker compose up -d --build
-```
-
-Then open **http://127.0.0.1:8888** in your browser.
-
-If you want to pass a different port, set the compose service port mapping in `docker-compose.yml` and the `uvicorn` command in `command:`.
-
----
-
 ## Master Data & English Names
 
 Stages 1+ (currency / costume / weapon / upgrade / memoir editors) require two things derived from the game's data files:
