@@ -42,7 +42,7 @@ func runCompanionBatch(req *request) (int, error) {
 	if err != nil {
 		return 0, fmt.Errorf("load quest catalog: %w", err)
 	}
-	config, err := masterdata.LoadGameCatalog()
+	config, err := masterdata.LoadGameConfig()
 	if err != nil {
 		return 0, fmt.Errorf("load game config: %w", err)
 	}
