@@ -22,7 +22,10 @@ BACKUP_DIR: Path = DATA_DIR / "backups"
 MASTERDATA_DIR: Path = DATA_DIR / "masterdata"
 NAMES_DIR: Path = DATA_DIR / "names"
 
-GRANT_EXE_PATH: Path = ROOT / "tools" / "grant" / ("grant.exe" if platform.system() == "Windows" else "grant")
+GRANT_EXE_PATH: Path = Path(os.environ.get(
+    "GRANT_EXE_PATH",
+    str(ROOT / "tools" / "grant" / ("grant.exe" if platform.system() == "Windows" else "grant")),
+)).resolve()
 
 
 def find_master_data_bin() -> Path | None:

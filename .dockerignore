@@ -1,0 +1,15 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+.env
+.git
+.gitignore
+data/
+*.db
+*.db-shm
+*.db-wal
+/lunar-tear
