@@ -15,9 +15,9 @@ check_dir_empty() {
 
 if [ ! -d .venv ]; then
     echo Creating virtual environment in .venv ...
-    python -m venv .venv
+    python3 -m venv .venv
     if [ $? -eq 1 ]; then
-        echo Failed to create virtual environment. Make sure Python 3.10+ is installed and accessible as "python".
+        echo Failed to create virtual environment. Make sure Python 3.10+ is installed and accessible as "python3".
     fi
 else
     echo Virtual environment already exists.
@@ -26,8 +26,8 @@ fi
 echo Installing / updating app dependencies ...
 
 source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r web/requirements.txt
+python3 -m pip install --upgrade pip
+python3 -m pip install -r web/requirements.txt
 if [ $? -eq 1 ]; then
     echo Dependency install failed. Check the messages above.
 fi
@@ -54,7 +54,7 @@ if [ $? -eq 0 ]; then
 
 
     echo "Installing master-data dump dependencies (one-time, into .venv) ..."
-    python -m pip install pycryptodome msgpack lz4
+    python3 -m pip install pycryptodome msgpack lz4
     if [ $? -eq 1 ]; then
         echo.
         echo Failed to install dump dependencies.
@@ -63,7 +63,7 @@ if [ $? -eq 0 ]; then
 
     echo Dumping master data to data\masterdata\ ...
     pushd ../lunar-scripts
-    python dump_masterdata.py --input "../lunar-tear/server/assets/release/20240404193219.bin.e" --output "../lunar-base/data/masterdata"
+    python3 dump_masterdata.py --input "../lunar-tear/server/assets/release/20240404193219.bin.e" --output "../lunar-base/data/masterdata"
     DUMP_RC=$?
     popd
 
@@ -88,7 +88,7 @@ if [ $? -eq 0 ]; then
     fi
 
     echo Extracting English names from text bundles ...
-    python tools/extract_names.py
+    python3 tools/extract_names.py
     if [ $? -eq 1 ]; then
         echo Names extraction failed.
         exit 1
