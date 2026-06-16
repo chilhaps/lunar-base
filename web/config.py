@@ -6,14 +6,16 @@ no matter what cwd it is launched from.
 
 from __future__ import annotations
 
+import os
 import platform
 from pathlib import Path
 
 ROOT: Path = Path(__file__).resolve().parent.parent
-
-LUNAR_TEAR_DIR: Path = (ROOT.parent / "lunar-tear").resolve()
+LUNAR_TEAR_DIR: Path = Path(os.environ.get("LUNAR_TEAR_DIR", str(ROOT.parent / "lunar-tear"))).resolve()
 GAME_DB_PATH: Path = (LUNAR_TEAR_DIR / "server" / "db" / "game.db").resolve()
 WIZARD_CONFIG_PATH: Path = (LUNAR_TEAR_DIR / "server" / ".wizard.json").resolve()
+LUNAR_TEAR_HOST: str = os.environ.get("LUNAR_TEAR_HOST", "127.0.0.1")
+
 
 DATA_DIR: Path = ROOT / "data"
 BACKUP_DIR: Path = DATA_DIR / "backups"

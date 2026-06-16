@@ -138,7 +138,7 @@ def detect_lunar_tear_running() -> str | None:
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(0.5)
     try:
-        if sock.connect_ex(("127.0.0.1", grpc_port)) == 0:
+        if sock.connect_ex((config.LUNAR_TEAR_HOST, grpc_port)) == 0:
             return f"lunar-tear gRPC server is listening on port {grpc_port}. Stop it before restoring."
     finally:
         sock.close()
