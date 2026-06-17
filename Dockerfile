@@ -2,7 +2,7 @@
 
 FROM golang:1.22 AS builder
 WORKDIR /src
-COPY tools/grant/src/*.go ./
+COPY lunar-base/tools/grant/src/*.go ./
 COPY lunar-tear/server/go.mod /tmp/lunar-tear/server/go.mod
 COPY lunar-tear/server/go.sum /tmp/lunar-tear/server/go.sum
 COPY lunar-tear/server/internal /tmp/lunar-tear/server/internal
