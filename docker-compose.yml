@@ -3,8 +3,8 @@ version: '3.9'
 services:
   lunar-base:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: lunar-base/Dockerfile
     container_name: lunar-base
     ports:
       - "8888:8888"
