@@ -3,9 +3,9 @@
 FROM golang:1.22 AS builder
 WORKDIR /src
 COPY tools/grant/src/*.go ./
-ARG LUNAR_TEAR_DIR=/lunar-tear
+ARG LUNAR_TEAR_DIR=../lunar-tear
 RUN mkdir -p /out
-RUN --mount=type=bind,source=../lunar-tear,target=/mnt/lunar-tear,readonly \
+RUN --mount=type=bind,source=${LUNAR_TEAR_DIR},target=/mnt/lunar-tear,readonly \
     mkdir -p /tmp/lunar-tear/server/cmd/lunar-base-grant && \
     cp -a /mnt/lunar-tear/. /tmp/lunar-tear/ && \
     cp *.go /tmp/lunar-tear/server/cmd/lunar-base-grant/ && \
