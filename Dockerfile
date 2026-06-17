@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED=1 \
 RUN apt-get update \
     && apt-get install -y --no-install-recommends build-essential python3-dev curl ca-certificates git \
     && rm -rf /var/lib/apt/lists/* \
-    && curl -fsSL https://go.dev/dl/go1.22.14.linux-amd64.tar.gz -o /tmp/go.tar.gz \
+    && curl -fsSL https://dl.google.com/go/go1.22.14.linux-amd64.tar.gz -o /tmp/go.tar.gz \
     && rm -rf /usr/local/go \
     && tar -C /usr/local -xzf /tmp/go.tar.gz \
     && rm /tmp/go.tar.gz \
