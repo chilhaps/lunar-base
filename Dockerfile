@@ -2,10 +2,10 @@
 
 FROM golang:1.22 AS builder
 WORKDIR /src
-COPY lunar-base/tools/grant/src/*.go ./
-COPY lunar-tear/server/go.mod /tmp/lunar-tear/server/go.mod
-COPY lunar-tear/server/go.sum /tmp/lunar-tear/server/go.sum
-COPY lunar-tear/server/internal /tmp/lunar-tear/server/internal
+COPY ./lunar-base/tools/grant/src/*.go ./
+COPY ./lunar-tear/server/go.mod /tmp/lunar-tear/server/go.mod
+COPY ./lunar-tear/server/go.sum /tmp/lunar-tear/server/go.sum
+COPY ./lunar-tear/server/internal /tmp/lunar-tear/server/internal
 RUN mkdir -p /out
 RUN mkdir -p /tmp/lunar-tear/server/cmd/lunar-base-grant && \
     cp *.go /tmp/lunar-tear/server/cmd/lunar-base-grant/ && \
